@@ -1,0 +1,90 @@
+---
+output: github_document
+---
+
+The purpose of this document is to download the spreadsheet for Iowa population by county, then turn that into a package-dataset.
+
+```{r packages}
+library("readxl")
+library("dplyr")
+library("stringr")
+library("forcats")
+library("steward")
+```
+
+
+
+```{r download}
+filename <- tempfile(fileext = ".xls")
+
+download.file(
+  url = "https://www.icip.iastate.edu/sites/default/files/uploads/tables/population/popest-annual.xls",
+  destfile = filename
+)
+```
+
+We read the 2019 estimates of population, then create some new varaibles.
+
+```{r read-transform}
+iowa_county_population <-
+  read_xls(
+    path = filename, 
+    sheet = "Counties", 
+    range = "A7:M107"
+  ) %>%
+  transmute(
+    fips = Fips,
+    county = str_replace(Area, " County, Iowa", ""),
+    population = `2019`
+  ) %>%
+  filter(fips > 19) %>%
+  arrange(population) %>%
+  mutate(
+    cumulative_population = cumsum(population),
+    quantile_population = cumulative_population/max(cumulative_population),
+    population_group = cut(
+      quantile_population, 
+      breaks = c(0, 0.25, 0.51, 0.78, 1),
+      labels = c("small", "mid-small", "mid-large", "large")
+    ),
+    population_group = fct_rev(population_group)
+  ) %>%
+  arrange(desc(cumulative_population)) %>%
+  print()
+```
+
+Now, we can document the dataset.
+
+```{r}
+iowa_county_population <-
+  iowa_county_population %>%
+  stw_dataset() %>%
+  stw_mutate_meta(
+    name = "iowa_county_population",
+    title = "Iowa population 2019",
+    description = "Estimate of Iowa population by county, 2019.",
+    sources = list(
+      list(
+        title = "Iowa Community Indicators Program",
+        path = "https://www.icip.iastate.edu/tables/population/counties-estimates"
+      )
+    )
+  ) %>%
+  stw_mutate_dict(
+    fips = "FIPS code",
+    county = "county name",
+    population = "population",
+    cumulative_population = "population in this and smaller counties",
+    quantile_population = "proportion of state population in this and smaller counties",
+  ) %>%
+  stw_validate()
+```
+
+```{r}
+stw_to_table(iowa_county_population)
+```
+
+```{r}
+stw_use_data(iowa_county_population, overwrite = TRUE)
+```
+

@@ -1,5 +1,5 @@
 Package: iowa.covid
-Title: Functions to scrape, transform, and visualize Iowa COVID-19 data.
+Title: Functions to scrape, transform, and visualize Iowa COVID-19 data
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Ian J",
@@ -18,3 +18,11 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 URL: https://github.com/ijlyttle/iowa.covid
 BugReports: https://github.com/ijlyttle/iowa.covid/issues
+Suggests: 
+    readxl,
+    utils,
+    dplyr,
+    stringr,
+    forcats
+Depends: 
+    R (>= 2.10)
