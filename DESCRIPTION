@@ -1,5 +1,5 @@
 Package: iowa.covid
-Title: What the Package Does (One Line, Title Case)
+Title: Functions to scrape, transform, and visualize Iowa COVID-19 data.
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Ian J",
@@ -7,9 +7,14 @@ Authors@R:
            role = c("aut", "cre"),
            email = "ian.lyttle@schneider-electric.com",
            comment = c(ORCID = "0000-0001-9962-4849"))
-Description: What the package does (one paragraph).
+Description: The Iowa COVID-19 website provides a lot of charts, but it does
+ not provide the data in a easily-machine-readable form. The first purpose of 
+ this package is to provide functions to scrape the "Current Cases Accessibilty
+ Page" <https://coronavirus.iowa.gov/pages/access>. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
+URL: https://github.com/ijlyttle/iowa.covid
+BugReports: https://github.com/ijlyttle/iowa.covid/issues
