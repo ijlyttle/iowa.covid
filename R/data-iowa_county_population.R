@@ -10,7 +10,7 @@
 #'   \item{population}{population}
 #'   \item{cumulative_population}{population in this and smaller counties}
 #'   \item{quantile_population}{proportion of state population in this and smaller counties}
-#'   \item{population_group}{group of counties such that each group has about a quarter of the state's population}
+#'   \item{population_group}{groups counties by populations such that each group has about a quarter of the state's population}
 #' }
 #' 
 #' @source [Iowa Community Indicators Program](https://www.icip.iastate.edu/tables/population/counties-estimates)

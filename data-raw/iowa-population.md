@@ -55,7 +55,7 @@ iowa_county_population <-
     quantile_population = cumulative_population/max(cumulative_population),
     population_group = cut(
       quantile_population, 
-      breaks = c(0, 0.25, 0.51, 0.78, 1),
+      breaks = c(0, 0.25, 0.50, 0.78, 1),
       labels = c("small", "mid-small", "mid-large", "large")
     ),
     population_group = fct_rev(population_group)
@@ -76,7 +76,7 @@ iowa_county_population <-
     ##  7 19061 Dubuque       97311           1879785            0.596 mid-large       
     ##  8 19169 Story         97117           1782474            0.565 mid-large       
     ##  9 19049 Dallas        93453           1685357            0.534 mid-large       
-    ## 10 19155 Pottawa…      93206           1591904            0.505 mid-small       
+    ## 10 19155 Pottawa…      93206           1591904            0.505 mid-large       
     ## # … with 89 more rows
 
 Now, we can document the dataset.
@@ -102,7 +102,7 @@ iowa_county_population <-
     population = "population",
     cumulative_population = "population in this and smaller counties",
     quantile_population = "proportion of state population in this and smaller counties",
-    population_group = "group of counties such that each group has about a quarter of the state's population"
+    population_group = "groups counties by populations such that each group has about a quarter of the state's population"
   ) %>%
   stw_validate()
 ```
@@ -117,7 +117,7 @@ stw_to_table(iowa_county_population)
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#jyrwijjjnx .gt_table {
+#jkoqcolpwz .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -145,7 +145,7 @@ stw_to_table(iowa_county_population)
   /* table.border.bottom.color */
 }
 
-#jyrwijjjnx .gt_heading {
+#jkoqcolpwz .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
@@ -164,7 +164,7 @@ stw_to_table(iowa_county_population)
   /* heading.border.lr.color */
 }
 
-#jyrwijjjnx .gt_title {
+#jkoqcolpwz .gt_title {
   color: #333333;
   font-size: 125%;
   /* heading.title.font.size */
@@ -178,7 +178,7 @@ stw_to_table(iowa_county_population)
   border-bottom-width: 0;
 }
 
-#jyrwijjjnx .gt_subtitle {
+#jkoqcolpwz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -192,7 +192,7 @@ stw_to_table(iowa_county_population)
   border-top-width: 0;
 }
 
-#jyrwijjjnx .gt_bottom_border {
+#jkoqcolpwz .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -201,7 +201,7 @@ stw_to_table(iowa_county_population)
   /* heading.border.bottom.color */
 }
 
-#jyrwijjjnx .gt_column_spanner {
+#jkoqcolpwz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -209,7 +209,7 @@ stw_to_table(iowa_county_population)
   padding-bottom: 4px;
 }
 
-#jyrwijjjnx .gt_col_headings {
+#jkoqcolpwz .gt_col_headings {
   border-top-style: solid;
   /* column_labels.border.top.style */
   border-top-width: 2px;
@@ -236,7 +236,7 @@ stw_to_table(iowa_county_population)
   /* column_labels.border.lr.color */
 }
 
-#jyrwijjjnx .gt_col_heading {
+#jkoqcolpwz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -252,11 +252,11 @@ stw_to_table(iowa_county_population)
   overflow-x: hidden;
 }
 
-#jyrwijjjnx .gt_sep_right {
+#jkoqcolpwz .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#jyrwijjjnx .gt_group_heading {
+#jkoqcolpwz .gt_group_heading {
   padding: 8px;
   /* row_group.padding */
   color: #333333;
@@ -295,7 +295,7 @@ stw_to_table(iowa_county_population)
   vertical-align: middle;
 }
 
-#jyrwijjjnx .gt_empty_group_heading {
+#jkoqcolpwz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -319,20 +319,20 @@ stw_to_table(iowa_county_population)
   vertical-align: middle;
 }
 
-#jyrwijjjnx .gt_striped {
+#jkoqcolpwz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
   /* row.striping.background_color */
 }
 
-#jyrwijjjnx .gt_from_md > :first-child {
+#jkoqcolpwz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jyrwijjjnx .gt_from_md > :last-child {
+#jkoqcolpwz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jyrwijjjnx .gt_row {
+#jkoqcolpwz .gt_row {
   padding-top: 8px;
   /* data_row.padding */
   padding-bottom: 8px;
@@ -362,7 +362,7 @@ stw_to_table(iowa_county_population)
   overflow-x: hidden;
 }
 
-#jyrwijjjnx .gt_stub {
+#jkoqcolpwz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   /* stub.background.color */
@@ -379,7 +379,7 @@ stw_to_table(iowa_county_population)
   padding-left: 12px;
 }
 
-#jyrwijjjnx .gt_summary_row {
+#jkoqcolpwz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   /* summary_row.background.color */
@@ -393,7 +393,7 @@ stw_to_table(iowa_county_population)
   padding-right: 5px;
 }
 
-#jyrwijjjnx .gt_first_summary_row {
+#jkoqcolpwz .gt_first_summary_row {
   padding-top: 8px;
   /* summary_row.padding */
   padding-bottom: 8px;
@@ -408,7 +408,7 @@ stw_to_table(iowa_county_population)
   /* summary_row.border.color */
 }
 
-#jyrwijjjnx .gt_grand_summary_row {
+#jkoqcolpwz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   /* grand_summary_row.background.color */
@@ -422,7 +422,7 @@ stw_to_table(iowa_county_population)
   padding-right: 5px;
 }
 
-#jyrwijjjnx .gt_first_grand_summary_row {
+#jkoqcolpwz .gt_first_grand_summary_row {
   padding-top: 8px;
   /* grand_summary_row.padding */
   padding-bottom: 8px;
@@ -437,7 +437,7 @@ stw_to_table(iowa_county_population)
   /* grand_summary_row.border.color */
 }
 
-#jyrwijjjnx .gt_table_body {
+#jkoqcolpwz .gt_table_body {
   border-top-style: solid;
   /* table_body.border.top.style */
   border-top-width: 2px;
@@ -452,7 +452,7 @@ stw_to_table(iowa_county_population)
   /* table_body.border.bottom.color */
 }
 
-#jyrwijjjnx .gt_footnotes {
+#jkoqcolpwz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   /* footnotes.background.color */
@@ -476,7 +476,7 @@ stw_to_table(iowa_county_population)
   /* footnotes.border.lr.color */
 }
 
-#jyrwijjjnx .gt_footnote {
+#jkoqcolpwz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   /* footnotes.font.size */
@@ -484,7 +484,7 @@ stw_to_table(iowa_county_population)
   /* footnotes.padding */
 }
 
-#jyrwijjjnx .gt_sourcenotes {
+#jkoqcolpwz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   /* source_notes.background.color */
@@ -508,49 +508,49 @@ stw_to_table(iowa_county_population)
   /* source_notes.border.lr.style */
 }
 
-#jyrwijjjnx .gt_sourcenote {
+#jkoqcolpwz .gt_sourcenote {
   font-size: 90%;
   /* source_notes.font.size */
   padding: 4px;
   /* source_notes.padding */
 }
 
-#jyrwijjjnx .gt_left {
+#jkoqcolpwz .gt_left {
   text-align: left;
 }
 
-#jyrwijjjnx .gt_center {
+#jkoqcolpwz .gt_center {
   text-align: center;
 }
 
-#jyrwijjjnx .gt_right {
+#jkoqcolpwz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jyrwijjjnx .gt_font_normal {
+#jkoqcolpwz .gt_font_normal {
   font-weight: normal;
 }
 
-#jyrwijjjnx .gt_font_bold {
+#jkoqcolpwz .gt_font_bold {
   font-weight: bold;
 }
 
-#jyrwijjjnx .gt_font_italic {
+#jkoqcolpwz .gt_font_italic {
   font-style: italic;
 }
 
-#jyrwijjjnx .gt_super {
+#jkoqcolpwz .gt_super {
   font-size: 65%;
 }
 
-#jyrwijjjnx .gt_footnote_marks {
+#jkoqcolpwz .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
 
-<div id="jyrwijjjnx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jkoqcolpwz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 
 <table class="gt_table">
 
@@ -803,8 +803,8 @@ string
 
 <p>
 
-group of counties such that each group has about a quarter of the
-state’s population
+groups counties by populations such that each group has about a quarter
+of the state’s population
 
 </p>
 

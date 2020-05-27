@@ -44,7 +44,7 @@ iowa_county_population <-
     quantile_population = cumulative_population/max(cumulative_population),
     population_group = cut(
       quantile_population, 
-      breaks = c(0, 0.25, 0.51, 0.78, 1),
+      breaks = c(0, 0.25, 0.50, 0.78, 1),
       labels = c("small", "mid-small", "mid-large", "large")
     ),
     population_group = fct_rev(population_group)
@@ -76,6 +76,7 @@ iowa_county_population <-
     population = "population",
     cumulative_population = "population in this and smaller counties",
     quantile_population = "proportion of state population in this and smaller counties",
+    population_group = "groups counties by populations such that each group has about a quarter of the state's population"
   ) %>%
   stw_validate()
 ```
